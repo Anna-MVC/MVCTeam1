@@ -49,10 +49,11 @@ namespace ProductManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Quantity,Category_ID")] Product product)
+        public ActionResult Create([Bind(Include = "Name,Quantity,Category_ID")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.ID = Guid.NewGuid().ToString();
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
