@@ -23,26 +23,33 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                 </ul>
+                @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                {
+                    <div class="form-group">
+                        <input type="text" name="id" class="form-control" placeholder="Search for ...">
+                        <span class="input-group-btn">
+                            <input type="submit" class="form-control"/>
+                        </span>
+                    </div>
+                }
             </div>
         </div>
     </div>
     <div class="container body-content">
         <div class="row">
-        <div class="col-md-9">@RenderBody()</div>
+            <div class="col-md-9">@RenderBody()</div>
             <div class="col-md-3"></div>
-        </div>   
+        </div>
         <ul>
             <li>@Html.ActionLink("Products", "Index", "Products")</li>
             <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
         </ul>
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-</div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

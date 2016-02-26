@@ -18,6 +18,12 @@ namespace ProductManager
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "SearchRoute",
+            //    url: "{controller}/?q={term}",
+            //    defaults: new { term = UrlParameter.Optional }
+            //);
         }
     }
 }
